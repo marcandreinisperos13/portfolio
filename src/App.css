@@ -276,8 +276,6 @@ section, footer {
                 .position {
                     font-weight: bold;
                 }
-
-                
             }
         }
     }
@@ -405,6 +403,11 @@ section, footer {
         .skill-experience {
             align-items: center;
             flex-direction: column;
+            gap: 30px;
+
+            .skills, .experience {
+                width: 100%;
+            }
         }
 
         .educational-background {
