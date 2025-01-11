@@ -4,12 +4,9 @@ import './App.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faChevronRight } from '@fortawesome/free-solid-svg-icons'
-import { faFacebook, faGoogle, faTiktok } from '@fortawesome/free-brands-svg-icons'
 
-import Kaoruko3 from './ASSETS/kaoruko3.png'
 import Kaoruko9 from './ASSETS/kaoruko9.png'
 import Kaoruko13 from './ASSETS/kaoruko13.jpg'
-import Kaoruko2 from './ASSETS/kaoruko2.png'
 
 import Icon1 from './ASSETS/html.png'
 import Icon2 from './ASSETS/css.svg'
@@ -24,19 +21,11 @@ const App = () => {
     const toggleDropdown = () => {
         setIsOpen(prevState => !prevState);
     }
-
-    const [msg, setmsg] = useState(false);
-
-    const openmsg = () => {
-        setmsg(prevState => !prevState);
-    }
     
-
     return (
         <div className="portfolio">
             <nav className="navbar">
                 <div className="logo">
-                    <img src={Kaoruko3} alt="" />
                     <p>Portfolio.</p>
                 </div>
 
@@ -65,7 +54,7 @@ const App = () => {
                 <div className="txt-block">
                     <h2>Hi, I am</h2>
                     <h1>Marc Andrei Nisperos</h1>
-                    <p>future asawa ni colet</p>
+                    <p>Future Frontend Web Developer</p>
                     <a href="#contact">Contact Me</a>
                 </div>
 
@@ -136,42 +125,57 @@ const App = () => {
             <section id="aboutme">
                 <div className="introduction">
                     <h2>About Me</h2>
-                    <p>Hi, I am <b>Marc Andrei Nisperos</b>, BSIT Fresh Graduate at Cavite State University - Tanza Campus and aiming to be a frontend developer. Even though i graduated I'm stil inexperience in tech industry and still gaining more knowledge o improve my frontend skills.</p>
+                    <p>Hi, I am <b>Marc Andrei Nisperos</b>, BSIT Student at Cavite State University - Tanza Campus and aiming to be a frontend developer. I'm stil inexperience in tech industry and still gaining more knowledge o improve my skills.</p>
                 </div>
 
-                <div className="skills">
-                    <h2>Skills</h2>
+                <div className="skill-experience">
+                    <div className="skills">
+                        <h2>Skills</h2>
 
-                    <div className="card-block">
-                        <div className="card">
-                            <img src={Icon1} alt="" />
+                        <div className="card-block">
+                            <div className="card">
+                                <img src={Icon1} alt="" />
 
-                            <p>HTML</p>
+                                <p>HTML</p>
+                            </div>
+                            <div className="card">
+                                <img src={Icon2} alt="" />
+
+                                <p>CSS</p>
+                            </div>
+                            <div className="card">
+                                <img src={Icon3} alt="" />
+
+                                <p>Javascript</p>
+                            </div>
+                            <div className="card">
+                                <img src={Icon4} alt="" />
+
+                                <p>MySQL</p>
+                            </div>
+                            <div className="card">
+                                <img src={Icon5} alt="" />
+
+                                <p>React JS</p>
+                            </div>
+                            <div className="card">
+                                <img src={Icon6} alt="" />
+
+                                <p>Node JS</p>
+                            </div>
                         </div>
-                        <div className="card">
-                            <img src={Icon2} alt="" />
+                    </div>
 
-                            <p>CSS</p>
-                        </div>
-                        <div className="card">
-                            <img src={Icon3} alt="" />
+                    <div className="experience">
+                        <h2>Experience</h2>
 
-                            <p>Javascript</p>
-                        </div>
-                        <div className="card">
-                            <img src={Icon4} alt="" />
-
-                            <p>MySQL</p>
-                        </div>
-                        <div className="card">
-                            <img src={Icon5} alt="" />
-
-                            <p>React JS</p>
-                        </div>
-                        <div className="card">
-                            <img src={Icon6} alt="" />
-
-                            <p>Node JS</p>
+                        <div className="txt-block">
+                            <div className="txt">
+                                <p className="position">Frontend Web Developer</p>
+                                <p>External and Business Affairs Website for Capstone</p>
+                                <p>- Developed responsive website using ReactJS and CSS</p>
+                                <p>- Developed functional order form that stores the users data to the database using NodeJS, ExpressJS and MySQL                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -189,7 +193,7 @@ const App = () => {
                                 School Year: <b>Grade 1 to Grade 3</b>
                             </p>
                             <p className="year-attended">
-                                Year Attended: <b>2003 to 2003</b>
+                                Year Attended: <b>2009 to 2012</b>
                             </p>
                         </div>
                         <div className="card">
@@ -201,7 +205,7 @@ const App = () => {
                                 School Year: <b>Grade 4 to Grade 6</b>
                             </p>
                             <p className="year-attended">
-                                Year Attended: <b>2003 to 2003</b>
+                                Year Attended: <b>2012 to 2015</b>
                             </p>
                         </div>
                         <div className="card">
@@ -213,7 +217,7 @@ const App = () => {
                                 School Year: <b>Grade 7 to Grade 10</b>
                             </p>
                             <p className="year-attended">
-                                Year Attended: <b>2003 to 2003</b>
+                                Year Attended: <b>2015 to 2019</b>
                             </p>
                         </div>
                         <div className="card">
@@ -225,7 +229,7 @@ const App = () => {
                                 School Year: <b>Grade 11 to Grade 12</b>
                             </p>
                             <p className="year-attended">
-                                Year Attended: <b>2003 to 2003</b>
+                                Year Attended: <b>2019 to 2021</b>
                             </p>
                         </div>
                         <div className="card">
@@ -237,7 +241,7 @@ const App = () => {
                                 School Year: <b>BSIT 1st Year to BSIT 4th Year</b>
                             </p>
                             <p className="year-attended">
-                                Year Attended: <b>2003 to 2003</b>
+                                Year Attended: <b>2021 to Current Year</b>
                             </p>
                         </div>
                     </div>
@@ -246,72 +250,10 @@ const App = () => {
 
             <section id="contact">
                 <h2>Contact Me!</h2>
-
-                <div className="form-block">
-                    <form>
-                        <div className="input-block">
-                            <label htmlFor="fullname">Full Name</label>
-                            <input 
-                                type="text" 
-                                name="fullname" 
-                                id="fullname" 
-                                placeholder='Enter Full Name'
-                                required
-                            />
-                        </div>
-                        <div className="input-group">
-                            <div className="input-block">
-                                <label>Email Address</label>
-                                <input 
-                                    type="email" 
-                                    name="email" 
-                                    id="email" 
-                                    placeholder='Enter Email Address'
-                                    required
-                                />
-                            </div>
-                            <div className="input-block">
-                                <label>Phone Number</label>
-                                <input 
-                                    type="number" 
-                                    name="phone" 
-                                    id="phone" 
-                                    placeholder='Enter Phone Number'
-                                    required
-                                />
-                            </div>
-                        </div>
-                        <div className="input-block">
-                            <label>Message</label>
-                            <input 
-                                type="text" 
-                                name="message" 
-                                id="message" 
-                                placeholder='Enter Message'
-                                required
-                            />
-                        </div>
-
-                        <button type="submit" onClick={openmsg}>Send</button>
-                        {msg && <div className='message'>di pa nagana</div>}
-                    </form>
-
-                    <p>or</p>
-
-                    <div className="social-media">
-                        <a href="https://www.facebook.com/annndreeei" target='_blank'>
-                            <FontAwesomeIcon icon={faFacebook} className='icon' />
-                        </a>
-                        <a href="https://www.tiktok.com/@asdjkl12347890" target='_blank'>
-                            <FontAwesomeIcon icon={faTiktok} className='icon' />
-                        </a>
-                    </div>
-                </div>
+                <p>Email Address: <a href="mailto:marcandreinisperos13@gmail.com" target='_blank'>marcandreinisperos13@gmail.com</a></p>
+                <p>Facebook: <a href="https://www.facebook.com/annndreeei" target='_blank'>annndreeei</a></p>
+                <p>TikTok: <a href="https://www.tiktok.com/@asdjkl12347890" target='_blank'>@asdjkl12347890</a></p>
             </section>
-
-            <footer>
-
-            </footer>
         </div>
     )
 }
