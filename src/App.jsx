@@ -14,22 +14,13 @@ import './CSS/Pages.css';
 const App = () => {
     
     return (
-        <div className="App">
+        <div className="portfolio">
             <Navbar />
 
             <Home />
             <Project />
             <About />
             <Contact />
-
-            {/* <BrowserRouter>
-                <Routes>
-				    <Route path='/portfolio/' element={<Home />}></Route>
-				    <Route path='/portfolio/project/' element={<Project />}></Route>
-				    <Route path='/portfolio/about/' element={<About />}></Route>
-				    <Route path='/portfolio/contact/' element={<Contact />}></Route>
-                </Routes>
-            </BrowserRouter> */}
 
             <Footer />
         </div>

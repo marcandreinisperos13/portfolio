@@ -1,14 +1,15 @@
 section {
     width: 100%;
+    min-height: 100vh;
     padding: 30px 3rem;
 
     h2 {
+        margin-bottom: 20px;
         text-align: center;
     }
 }
 
 #home {
-    height: 85vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -54,7 +55,7 @@ section {
 
     .card-block {
         width: 80%;
-        margin: auto;
+        margin: 20px auto;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
         gap: 20px;
@@ -142,21 +143,24 @@ section {
     
             .card-block {
                 width: 100%;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-                gap: 20px;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 30px;
     
                 .card {
-                    height: 100px;
+                    width: 100px;
+                    min-height: 100px;
                     display: flex;
-                    justify-content: start;
+                    justify-content: center;
                     align-items: center;
+                    flex-direction: column;
                     gap: 20px;
     
                     img {
-                        width: 30%;
-                        height: 100%;
-                        padding: 10px;
+                        width: 100%;
+                        aspect-ratio: 1/1;
                         object-fit: contain;
                     }
                 }
@@ -165,6 +169,12 @@ section {
 
         .experience {
             width: 50%;
+
+            .txt-block {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
             
             .txt {
                 display: flex;
@@ -174,8 +184,13 @@ section {
                 gap: 10px;
 
                 .position {
-                    font-weight: bold;
+                    color: #767676;
+                    font-size: 0.9rem;
                 }
+            }
+
+            .details {
+                padding-left: 20px;
             }
         }
     }
@@ -207,6 +222,7 @@ section {
 }
 
 #contact {
+    min-height: 40vh;
     p {
         text-align: center;
     }

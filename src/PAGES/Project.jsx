@@ -7,66 +7,64 @@ import NoImage from '../ASSETS/no-image.png'
 
 const Project = () => {
     return (
-        <div className="portfolio">
-            <section id="project">
-                <h2>Project</h2>
+        <section id="project">
+            <h2>Projects</h2>
 
-                <div className="card-block">
-                    <div className="card">
-                        <div className="img-block">
-                            <img src={NoImage} alt="" />
-                        </div>
-
-                        <div className="txt-block">
-                            <div className="txt">
-                                <p className="project-title">Project Title</p>
-                                <p className="project-description">Project Description</p>
-                            </div>
-                            <a href="">See More <FontAwesomeIcon icon={faChevronRight} /></a>
-                        </div>
+            <div className="card-block">
+                <div className="card">
+                    <div className="img-block">
+                        <img src={NoImage} alt="" />
                     </div>
-                    <div className="card">
-                        <div className="img-block">
-                            <img src={NoImage} alt="" />
-                        </div>
 
-                        <div className="txt-block">
-                            <div className="txt">
-                                <p className="project-title">Project Title</p>
-                                <p className="project-description">Project Description</p>
-                            </div>
-                            <a href="">See More <FontAwesomeIcon icon={faChevronRight} /></a>
+                    <div className="txt-block">
+                        <div className="txt">
+                            <p className="project-title">Project Title</p>
+                            <p className="project-description">Project Description</p>
                         </div>
-                    </div>
-                    <div className="card">
-                        <div className="img-block">
-                            <img src={NoImage} alt="" />
-                        </div>
-
-                        <div className="txt-block">
-                            <div className="txt">
-                                <p className="project-title">Project Title</p>
-                                <p className="project-description">Project Description</p>
-                            </div>
-                            <a href="">See More <FontAwesomeIcon icon={faChevronRight} /></a>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <div className="img-block">
-                            <img src={NoImage} alt="" />
-                        </div>
-
-                        <div className="txt-block">
-                            <div className="txt">
-                                <p className="project-title">Project Title</p>
-                                <p className="project-description">Project Description</p>
-                            </div>
-                            <a href="">See More <FontAwesomeIcon icon={faChevronRight} /></a>
-                        </div>
+                        <a href="">See More <FontAwesomeIcon icon={faChevronRight} /></a>
                     </div>
                 </div>
-            </section>
-        </div>
+                <div className="card">
+                    <div className="img-block">
+                        <img src={NoImage} alt="" />
+                    </div>
+
+                    <div className="txt-block">
+                        <div className="txt">
+                            <p className="project-title">Project Title</p>
+                            <p className="project-description">Project Description</p>
+                        </div>
+                        <a href="">See More <FontAwesomeIcon icon={faChevronRight} /></a>
+                    </div>
+                </div>
+                <div className="card">
+                    <div className="img-block">
+                        <img src={NoImage} alt="" />
+                    </div>
+
+                    <div className="txt-block">
+                        <div className="txt">
+                            <p className="project-title">Project Title</p>
+                            <p className="project-description">Project Description</p>
+                        </div>
+                        <a href="">See More <FontAwesomeIcon icon={faChevronRight} /></a>
+                    </div>
+                </div>
+                <div className="card">
+                    <div className="img-block">
+                        <img src={NoImage} alt="" />
+                    </div>
+
+                    <div className="txt-block">
+                        <div className="txt">
+                            <p className="project-title">Project Title</p>
+                            <p className="project-description">Project Description</p>
+                        </div>
+                        <a href="">See More <FontAwesomeIcon icon={faChevronRight} /></a>
+                    </div>
+                </div>
+            </div>
+        </section>
     )
 }
 
