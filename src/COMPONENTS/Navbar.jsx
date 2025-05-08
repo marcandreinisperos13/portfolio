@@ -18,10 +18,10 @@ const Navbar = () => {
                 </div>
 
                 <div className="nav-links">
-                    <a href="/portfolio/">Home</a>
-                    <a href="/portfolio/project">Projects</a>
-                    <a href="/portfolio/about">About</a>
-                    <a href="/portfolio/contact">Contact</a>
+                    <a href="#home">Home</a>
+                    <a href="#project">Projects</a>
+                    <a href="#About">About</a>
+                    <a href="#contact">Contact</a>
                 </div>
 
                 <div className="toggle-btn" onClick={toggleDropdown}>
@@ -31,10 +31,10 @@ const Navbar = () => {
 
             <nav className={`responsive-navbar ${isOpen ? 'open' : ''}`}>
                 <div className="nav-links">
-                    <a href="/portfolio/">Home</a>
-                    <a href="/portfolio/project">Projects</a>
-                    <a href="/portfolio/about">About</a>
-                    <a href="/portfolio/contact">Contact</a>
+                    <a href="#home">Home</a>
+                    <a href="#project">Projects</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
                 </div>
             </nav>
         </div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './PAGES/Home'
 import Project from './PAGES/Project'
@@ -18,14 +17,19 @@ const App = () => {
         <div className="App">
             <Navbar />
 
-            <BrowserRouter>
+            <Home />
+            <Project />
+            <About />
+            <Contact />
+
+            {/* <BrowserRouter>
                 <Routes>
 				    <Route path='/portfolio/' element={<Home />}></Route>
 				    <Route path='/portfolio/project/' element={<Project />}></Route>
 				    <Route path='/portfolio/about/' element={<About />}></Route>
 				    <Route path='/portfolio/contact/' element={<Contact />}></Route>
                 </Routes>
-            </BrowserRouter>
+            </BrowserRouter> */}
 
             <Footer />
         </div>
