@@ -14,10 +14,10 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22 # Vite requires Node >=20
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm install --ignore-optional
 
       - name: Build
         run: npm run build
