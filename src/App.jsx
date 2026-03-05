@@ -35,7 +35,7 @@ export default function App() {
         </div>
       </nav>
 
-      <header className="min-h-screen px-20 bg-[url('public/header-bg.png')] bg-center bg-cover flex items-center">
+      <header className="min-h-screen px-20 bg-[url('/header-bg.png')] bg-center bg-cover flex items-center">
         <div className="w-1/2 flex flex-col justify-center gap-5">
           <h1 className="font-headline text-4xl font-bold">
             Hi, I'm Marc Andrei Nisperos
