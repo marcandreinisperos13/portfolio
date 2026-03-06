@@ -34,7 +34,7 @@ export default function App() {
         </div>
       </nav>
 
-      <header className="min-h-screen px-30 bg-[url('/header-bg.png')] bg-center bg-cover flex items-center">
+      <header id="home" className="min-h-screen px-30 bg-[url('/header-bg.png')] bg-center bg-cover flex items-center">
         <div className="w-1/2 flex flex-col justify-center gap-5">
           <h1 className="font-headline text-4xl font-bold">
             Hi, I'm Marc Andrei Nisperos
@@ -65,7 +65,7 @@ export default function App() {
         </div>
       </header>
 
-      <div className="p-30 center-flex gap-30">
+      <section id="about" className="p-30 center-flex gap-30">
         <div className="w-1/4 h-[500px] bg-gray-200 rounded-lg center-flex">
           <img
             src="me.png"
@@ -92,7 +92,7 @@ export default function App() {
             and creativity to build beautiful, functional web and mobile
             applications that provide an exceptional user experience.
           </p>
-
+            
           <div className="grid grid-cols-3 gap-5">
             <div className="text-center rounded-md shadow-[0_0_5px_rgba(0,0,0,0.3)] p-5">
               <h2 className="text-3xl font-bold text-(--primary-btn)">0+</h2>
@@ -108,7 +108,7 @@ export default function App() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }
