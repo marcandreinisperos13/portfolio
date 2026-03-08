@@ -13,7 +13,8 @@ const educWork = [
     where: "No Job",
     date: "March 2026",
     title: "No Job Position",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae asperiores necessitatibus omnis facilis sed fuga, hic mollitia, non velit unde et iure dolorem aspernatur corrupti temporibus magni minus quos optio.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae asperiores necessitatibus omnis facilis sed fuga, hic mollitia, non velit unde et iure dolorem aspernatur corrupti temporibus magni minus quos optio.",
   },
   {
     where: "Bachelor of Science in Information Technology",
@@ -21,7 +22,7 @@ const educWork = [
     title: "College Graduate",
     description: "Graduated at Cavite State University - Tanza Campus",
   },
-]
+];
 
 const webSkills = [
   { name: "HTML", level: 80 },
