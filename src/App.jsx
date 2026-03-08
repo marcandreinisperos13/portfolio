@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "./App.css";
+import { SiGmail } from "react-icons/si";
+import { FaFacebookF, FaGithub, FaPhoneAlt, FaRegCopyright } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 
 const links = [
   { id: "home", label: "Home" },
@@ -155,8 +158,8 @@ export default function App() {
           </h1>
 
           <div>
-            {educWork.map((work) => (
-              <div className="min-h-[200px] flex">
+            {educWork.map((work, index) => (
+              <div className="min-h-[200px] flex" key={index}>
                 <div className="flex-1 space-y-2">
                   <h2 className="text-2xl font-bold text-(--primary-btn)">
                     {work.where}
@@ -165,7 +168,12 @@ export default function App() {
                 </div>
 
                 <div className="mx-10 flex justify-center">
-                  <div className="w-1 h-full bg-gray-700 relative">
+                  <div
+                    className={`
+                    w-1 h-full  relative
+                    ${index !== educWork.length - 1 ? "bg-gray-700" : ""}
+                  `}
+                  >
                     <div className="w-7 h-7 rounded-full bg-gray-700 absolute top-0 left-1/2 -translate-x-1/2"></div>
                   </div>
                 </div>
@@ -227,6 +235,140 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      <section id="projects" className="p-30 space-y-30 bg-gray-100">
+        <h1 className="text-4xl font-bold text-center">PROJECTS</h1>
+
+        <div className="grid grid-cols-3 gap-10">
+          <div className="aspect-square relative group">
+            <div className="p-3 rounded-lg bg-gray-200 absolute inset-0 z-10 overflow-hidden">
+              <img
+                src="Nahida.png"
+                alt="Project Image"
+                className="w-full h-full object-cover transition group-hover:scale-[1.2]"
+              />
+            </div>
+
+            <div className="w-full h-full space-y-3 bg-black/50 text-center text-(--primary-bg) z-20 absolute inset-0 opacity-0 transition group-hover:opacity-100 overflow-hidden rounded-lg">
+              <div className="space-y-3 h-full center-flex">
+                <div className="flex-1">
+                  <h2 className="text-(--primary-btn) text-2xl font-bold">
+                    Project Name
+                  </h2>
+                  <p>Job Position</p>
+                  <button className="button w-1/3 mt-5 bg-(--primary-btn) cursor-pointer">
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-shadow rounded-lg"></div>
+          </div>
+
+          <div className="aspect-square relative group">
+            <div className="p-3 rounded-lg bg-gray-200 absolute inset-0 z-10 overflow-hidden">
+              <img
+                src="Nahida.png"
+                alt="Project Image"
+                className="w-full h-full object-cover transition group-hover:scale-[1.2]"
+              />
+            </div>
+
+            <div className="w-full h-full space-y-3 bg-black/50 text-center text-(--primary-bg) z-20 absolute inset-0 opacity-0 transition group-hover:opacity-100 overflow-hidden rounded-lg">
+              <div className="space-y-3 h-full center-flex">
+                <div className="flex-1">
+                  <h2 className="text-(--primary-btn) text-2xl font-bold">
+                    Project Name
+                  </h2>
+                  <p>Job Position</p>
+                  <button className="button w-1/3 mt-5 bg-(--primary-btn) cursor-pointer">
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-shadow rounded-lg"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="p-30 space-y-20">
+        <div className="space-y-5 mt-5 flex justify-between">
+          <div className="max-w-1/2 flex-1 space-y-5">
+            <h1 className="text-4xl font-bold">Let’s Work Together</h1>
+            <h3 className="text-2xl">
+              I'm currently open to opportunities, collaborations, or freelance
+              projects. If you'd like to work with me or just want to say hello,
+              feel free to reach out!
+            </h3>
+          </div>
+
+          <div className="space-y-5">
+            <div className="flex items-center gap-5">
+              <div className="p-3 bg-(--primary-btn)/30 rounded-full">
+                <SiGmail size={25} color="var(--primary-btn)" />
+              </div>
+              <a
+                href="mailto:marcandreinisperos13@gmail.com"
+                className="underline"
+              >
+                marcandreinisperos13@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center gap-5">
+              <div className="p-3 bg-(--primary-btn)/30 rounded-full">
+                <FaGithub size={25} color="var(--primary-btn)" />
+              </div>
+              <a
+                href="https://github.com/marcandreinisperos13"
+                className="underline"
+              >
+                marcandreinisperos13
+              </a>
+            </div>
+            <div className="flex items-center gap-5">
+              <div className="p-3 bg-(--primary-btn)/30 rounded-full">
+                <FaLocationDot size={25} color="var(--primary-btn)" />
+              </div>
+              <p>Imus City, Cavite, Philippines</p>
+            </div>
+            <div className="flex items-center gap-5">
+              <div className="p-3 bg-(--primary-btn)/30 rounded-full">
+                <FaPhoneAlt size={25} color="var(--primary-btn)" />
+              </div>
+              <p>+639065039826</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="px-30 py-20 bg-gray-700 text-(--primary-bg) flex items-center justify-between gap-5">
+        <div className="flex items-center gap-20">
+          <h1 className="text-2xl font-bold">Andrei. </h1>
+
+          <p className="flex items-center gap-3">
+            <FaRegCopyright /> 2026. All rights reserved.
+          </p>
+        </div>
+
+        <div className="flex items-center gap-5">
+          <a href="https://www.facebook.com/annndreeei">
+            <FaFacebookF size={20} />
+          </a>
+          <a
+            href="https://github.com/marcandreinisperos13"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub size={20} />
+          </a>
+          <a href="mailto:marcandreinisperos13@gmail.com">
+            <SiGmail size={20} />
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
