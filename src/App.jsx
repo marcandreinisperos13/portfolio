@@ -3,44 +3,37 @@ import "./App.css";
 import { SiGmail } from "react-icons/si";
 import { FaFacebookF, FaGithub, FaPhoneAlt, FaRegCopyright } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import { educWork, links, mobileSkills, projects, webSkills } from "./data";
+import { IoClose } from "react-icons/io5";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 
-const links = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
-];
-
-const educWork = [
-  {
-    where: "No Job",
-    date: "March 2026",
-    title: "No Job Position",
-    description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae asperiores necessitatibus omnis facilis sed fuga, hic mollitia, non velit unde et iure dolorem aspernatur corrupti temporibus magni minus quos optio.",
-  },
-  {
-    where: "Bachelor of Science in Information Technology",
-    date: "September 2021 - July 2025",
-    title: "College Graduate",
-    description: "Graduated at Cavite State University - Tanza Campus",
-  },
-];
-
-const webSkills = [
-  { name: "HTML", level: 80 },
-  { name: "CSS", level: 85 },
-  { name: "JavaScript", level: 60 },
-  { name: "React", level: 65 },
-  { name: "Tailwind CSS", level: 80 },
-];
-const mobileSkills = [
-  { name: "React Native", level: 45 },
-  { name: "Flutter", level: 30 },
-];
 
 export default function App() {
   const [active, setActive] = useState("home");
+
+  const [openViewDetails, setOpenViewDetails] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const viewDetails = (project) => {
+    setSelectedProject(project);
+    setCurrent(0);
+    setOpenViewDetails(true);
+  };
+
+  const [current, setCurrent] = useState(0);
+  const prevSlide = () => {
+    if (!selectedProject?.images) return;
+
+    setCurrent((prev) =>
+      prev === 0 ? selectedProject.images.length - 1 : prev - 1,
+    );
+  };
+  const nextSlide = () => {
+    if (!selectedProject?.images) return;
+
+    setCurrent((prev) =>
+      prev === selectedProject.images.length - 1 ? 0 : prev + 1,
+    );
+  };
 
   return (
     <div className="min-h-screen text-(--primary-txt) bg-(--primary-bg) font-headline">
@@ -240,58 +233,113 @@ export default function App() {
         <h1 className="text-4xl font-bold text-center">PROJECTS</h1>
 
         <div className="grid grid-cols-3 gap-10">
-          <div className="aspect-square relative group">
-            <div className="p-3 rounded-lg bg-gray-200 absolute inset-0 z-10 overflow-hidden">
-              <img
-                src="Nahida.png"
-                alt="Project Image"
-                className="w-full h-full object-cover transition group-hover:scale-[1.2]"
-              />
-            </div>
+          {projects.map((project, index) => (
+            <div className="aspect-square relative group" key={index}>
+              <div className="p-3 rounded-lg bg-gray-200 absolute inset-0 z-10 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt="Project Image"
+                  className="w-full h-full object-cover transition group-hover:scale-[1.2]"
+                />
+              </div>
 
-            <div className="w-full h-full space-y-3 bg-black/50 text-center text-(--primary-bg) z-20 absolute inset-0 opacity-0 transition group-hover:opacity-100 overflow-hidden rounded-lg">
-              <div className="space-y-3 h-full center-flex">
-                <div className="flex-1">
-                  <h2 className="text-(--primary-btn) text-2xl font-bold">
-                    Project Name
-                  </h2>
-                  <p>Job Position</p>
-                  <button className="button w-1/3 mt-5 bg-(--primary-btn) cursor-pointer">
-                    View Details
-                  </button>
+              <div className="w-full h-full space-y-3 bg-black/50 text-center text-(--primary-bg) z-20 absolute inset-0 opacity-0 transition group-hover:opacity-100 overflow-hidden rounded-lg">
+                <div className="space-y-3 h-full center-flex">
+                  <div className="flex-1">
+                    <h2 className="text-(--primary-btn) text-2xl font-bold">
+                      {project.name}
+                    </h2>
+                    <p>{project.position}</p>
+                    <button
+                      className="button w-1/3 mt-5 bg-(--primary-btn) cursor-pointer"
+                      onClick={() => viewDetails(project)}
+                    >
+                      View Details
+                    </button>
+                  </div>
                 </div>
               </div>
+
+              <div className="border-shadow rounded-lg"></div>
             </div>
-
-            <div className="border-shadow rounded-lg"></div>
-          </div>
-
-          <div className="aspect-square relative group">
-            <div className="p-3 rounded-lg bg-gray-200 absolute inset-0 z-10 overflow-hidden">
-              <img
-                src="Nahida.png"
-                alt="Project Image"
-                className="w-full h-full object-cover transition group-hover:scale-[1.2]"
-              />
-            </div>
-
-            <div className="w-full h-full space-y-3 bg-black/50 text-center text-(--primary-bg) z-20 absolute inset-0 opacity-0 transition group-hover:opacity-100 overflow-hidden rounded-lg">
-              <div className="space-y-3 h-full center-flex">
-                <div className="flex-1">
-                  <h2 className="text-(--primary-btn) text-2xl font-bold">
-                    Project Name
-                  </h2>
-                  <p>Job Position</p>
-                  <button className="button w-1/3 mt-5 bg-(--primary-btn) cursor-pointer">
-                    View Details
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="border-shadow rounded-lg"></div>
-          </div>
+          ))}
         </div>
+
+        {openViewDetails && selectedProject && (
+          <div className="fixed inset-0 bg-black/50 z-50">
+            <div className="min-w-1/2 min-h-1/2 bg-(--primary-bg) rounded-lg p-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <h1 className="text-2xl font-bold relative">
+                {selectedProject.name}
+                <IoClose
+                  size={20}
+                  className="absolute top-0 right-0 cursor-pointer"
+                  onClick={() => setOpenViewDetails(false)}
+                />
+              </h1>
+              <p className="text-gray-500">{selectedProject.date}</p>
+
+              <div className="mt-8 flex gap-3">
+                <div className="relative w-1/2 overflow-hidden rounded-lg">
+                  <div
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${current * 100}%)` }}
+                  >
+                    {selectedProject.images?.map((src, index) => (
+                      <img
+                        key={index}
+                        src={src}
+                        className="w-full flex-shrink-0 object-cover"
+                        alt={`slide-${index}`}
+                      />
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={prevSlide}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full cursor-pointer"
+                  >
+                    <BiChevronLeft size={24} />
+                  </button>
+
+                  <button
+                    onClick={nextSlide}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full cursor-pointer"
+                  >
+                    <BiChevronRight size={24} />
+                  </button>
+
+                  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+                    {selectedProject.images?.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrent(index)}
+                        className={`h-3 w-3 rounded-full cursor-pointer ${
+                          current === index
+                            ? "bg-(--primary-btn)"
+                            : "bg-gray-500/50"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex-1 space-y-3">
+                  <h3 className="text-xl font-semibold">Project Description</h3>
+                  <p className="text-gray-500">{selectedProject.description}</p>
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">Technologies</h3>
+                    <div className="ml-5 text-gray-500">
+                      {selectedProject.tech.map((tech, i) => (
+                        <p key={i}>{tech}</p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       <section id="contact" className="p-30 space-y-20">
