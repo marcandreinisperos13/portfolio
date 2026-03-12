@@ -37,6 +37,12 @@ nav {
   a:hover::after, a.active::after {
     transform: translateX(-50%) scaleX(1);
   }
+
+  @media screen and (max-width: 992px) {
+    a:hover::after, a.active::after {
+      transform: translateX(-50%) scaleX(0);
+    }
+  }
 }
 .button {
   padding: 10px 5px;

@@ -1,16 +1,23 @@
 import { useState } from "react";
 import "./App.css";
 import { SiGmail } from "react-icons/si";
-import { FaFacebookF, FaGithub, FaPhoneAlt, FaRegCopyright } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaGithub,
+  FaPhoneAlt,
+  FaRegCopyright,
+} from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { educWork, links, mobileSkills, projects, webSkills } from "./data";
-import { IoClose } from "react-icons/io5";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
-
+import { HiMenu } from "react-icons/hi";
+import { IoClose } from "react-icons/io5";
 
 export default function App() {
+  const [openNavDropdown, setOpenNavDropdown] = useState(false);
   const [active, setActive] = useState("home");
 
+  const [openProject, setOpenProject] = useState(null);
   const [openViewDetails, setOpenViewDetails] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const viewDetails = (project) => {
@@ -38,32 +45,44 @@ export default function App() {
   return (
     <div className="min-h-screen text-(--primary-txt) bg-(--primary-bg) font-headline">
       <nav className="w-full bg-(--primary-bg)/80 fixed top-0 left-0 z-50">
-        <div className="py-5 flex items-center justify-around">
+        <div className="py-5 px-5 flex items-center lg:justify-around justify-between">
           <h3 className="font-semibold text-lg">Andrei.</h3>
 
-          <div className="center-flex gap-3">
+          <div
+            className={`
+            lg:w-auto w-full lg:h-auto lg:py-0 lg:bg-transparent bg-(--primary-bg)/80 lg:center-flex lg:flex-row gap-3 lg:relative lg:opacity-100 absolute top-full left-0 flex items-start justify-between flex-col py-3 overflow-hidden transition
+            ${openNavDropdown ? "h-[230px] opacity-100" : "h-0 opacity-0"}
+          `}
+          >
             {links.map((link) => (
               <a
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={() => setActive(link.id)}
                 className={`
-                  py-2 px-5 relative transition
+                  w-full py-2 px-5 relative transition
                   ${active === link.id ? "active text-(--primary-btn)" : "hover:text-(--primary-btn)"}
                 `}
               >
                 {link.label}
               </a>
-            ))}{" "}
+            ))}
           </div>
+
+          <button
+            className="lg:hidden"
+            onClick={() => setOpenNavDropdown((prev) => !prev)}
+          >
+            {openNavDropdown ? <IoClose size={25} /> : <HiMenu size={25} />}
+          </button>
         </div>
       </nav>
 
       <header
         id="home"
-        className="min-h-screen px-30 bg-[url('/header-bg.png')] bg-center bg-cover flex items-center"
+        className="min-h-screen px-10 lg:px-20 xl:px-30 bg-[#6CCFF9] lg:bg-[url('/header-bg.png')] bg-right lg:bg-center bg-contain flex items-center"
       >
-        <div className="w-1/2 flex flex-col justify-center gap-5">
+        <div className="lg:w-1/2 flex flex-col justify-center gap-5">
           <h1 className="font-headline text-4xl font-bold">
             Hi, I'm Marc Andrei Nisperos
           </h1>
@@ -74,7 +93,7 @@ export default function App() {
               I build beautiful, functional web and mobile applications with a
               focus on user experience and modern design principles.
             </span>{" "}
-            I bring UI designs to life by transforming
+            I bring UI designs to life by transforming{" "}
             <span className="font-semibold">
               mockups into responsive, interactive interfaces
             </span>{" "}
@@ -82,7 +101,7 @@ export default function App() {
             Tailwind CSS.
           </p>
 
-          <div className="w-1/4 flex gap-3">
+          <div className="w-1/2 xl:w-1/4 flex gap-3">
             <a
               href="mailto:marcandreinisperos13@gmail.com"
               className="button bg-(--primary-btn) text-(--primary-bg)"
@@ -93,9 +112,9 @@ export default function App() {
         </div>
       </header>
 
-      <section id="about" className="p-30 space-y-30">
-        <div className="center-flex gap-30">
-          <div className="w-1/4 h-[500px] bg-gray-200 rounded-lg center-flex">
+      <section id="about" className="p-10 lg:p-20 xl:p-30 space-y-30">
+        <div className="center-flex gap-10 xl:gap-30 flex-col lg:flex-row">
+          <div className="w-full lg:w-1/2 xl:w-1/4 h-auto lg:h-[500px] bg-gray-200 rounded-lg center-flex">
             <img
               src="me.png"
               alt="Marc Andrei Nisperos"
@@ -128,16 +147,16 @@ export default function App() {
               .
             </p>
 
-            <div className="grid grid-cols-3 gap-5">
-              <div className="text-center rounded-md shadow-[0_0_5px_rgba(0,0,0,0.3)] p-5">
+            <div className="grid grid-cols-2 xl:grid-cols-3 gap-5">
+              <div className="min-h-[130px] text-center rounded-md shadow-[0_0_5px_rgba(0,0,0,0.3)] p-5 center-flex flex-col">
                 <h2 className="text-3xl font-bold text-(--primary-btn)">0+</h2>
                 <p>Years of Experience</p>
               </div>
-              <div className="text-center rounded-md shadow-[0_0_5px_rgba(0,0,0,0.3)] p-5">
+              <div className="min-h-[130px] text-center rounded-md shadow-[0_0_5px_rgba(0,0,0,0.3)] p-5 center-flex flex-col">
                 <h2 className="text-3xl font-bold text-(--primary-btn)">0+</h2>
                 <p>Projects Completed</p>
               </div>
-              <div className="text-center rounded-md shadow-[0_0_5px_rgba(0,0,0,0.3)] p-5">
+              <div className="min-h-[130px] text-center rounded-md shadow-[0_0_5px_rgba(0,0,0,0.3)] p-5 center-flex flex-col">
                 <h2 className="text-3xl font-bold text-(--primary-btn)">0+</h2>
                 <p>Satisfied Client</p>
               </div>
@@ -160,10 +179,10 @@ export default function App() {
                   <p>{work.date}</p>
                 </div>
 
-                <div className="mx-10 flex justify-center">
+                <div className="mx-5 flex justify-center">
                   <div
                     className={`
-                    w-1 h-full  relative
+                    w-1 h-full relative
                     ${index !== educWork.length - 1 ? "bg-gray-700" : ""}
                   `}
                   >
@@ -186,7 +205,7 @@ export default function App() {
         <div className="space-y-10">
           <h1 className="text-4xl font-bold text-center">MY SKILLS</h1>
 
-          <div className="grid grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div className="space-y-5">
               <h3 className="text-2xl font-medium">Web Development</h3>
 
@@ -229,21 +248,37 @@ export default function App() {
         </div>
       </section>
 
-      <section id="projects" className="p-30 space-y-30 bg-gray-100">
+      <section
+        id="projects"
+        className="p-10 lg:p-20 xl:p-30 space-y-10 lg:space-y-20 xl:space-y-30 bg-gray-100"
+      >
         <h1 className="text-4xl font-bold text-center">PROJECTS</h1>
 
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
-            <div className="aspect-square relative group" key={index}>
+            <button
+              key={index}
+              onClick={() =>
+                setOpenProject((prev) => (prev === index ? null : index))
+              }
+              className="aspect-square relative group"
+            >
               <div className="p-3 rounded-lg bg-gray-200 absolute inset-0 z-10 overflow-hidden">
                 <img
                   src={project.image}
                   alt="Project Image"
-                  className="w-full h-full object-cover transition group-hover:scale-[1.2]"
+                  className={`
+                    w-full h-full object-cover transition group-hover:scale-[1.2]
+                    ${openProject === index ? "scale-[1.2]" : "scale-100"}
+                  `}
                 />
               </div>
 
-              <div className="w-full h-full space-y-3 bg-black/50 text-center text-(--primary-bg) z-20 absolute inset-0 opacity-0 transition group-hover:opacity-100 overflow-hidden rounded-lg">
+              <div
+                className={`
+                w-full h-full space-y-3 bg-black/50 text-center text-(--primary-bg) z-20 absolute inset-0 opacity-0 transition group-hover:opacity-100 overflow-hidden rounded-lg
+                ${openProject === index ? "opacity-100" : "opacity-0"}              `}
+              >
                 <div className="space-y-3 h-full center-flex">
                   <div className="flex-1">
                     <h2 className="text-(--primary-btn) text-2xl font-bold">
@@ -261,13 +296,13 @@ export default function App() {
               </div>
 
               <div className="border-shadow rounded-lg"></div>
-            </div>
+            </button>
           ))}
         </div>
 
         {openViewDetails && selectedProject && (
-          <div className="fixed inset-0 bg-black/50 z-50">
-            <div className="min-w-1/2 min-h-1/2 bg-(--primary-bg) rounded-lg p-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="p-5 fixed inset-0 center-flex bg-black/50 z-50">
+            <div className="p-5 w-full lg:w-3/4 min-h-auto lg:min-h-1/2 bg-(--primary-bg) rounded-lg">
               <h1 className="text-2xl font-bold relative">
                 {selectedProject.name}
                 <IoClose
@@ -278,8 +313,8 @@ export default function App() {
               </h1>
               <p className="text-gray-500">{selectedProject.date}</p>
 
-              <div className="mt-8 flex gap-3">
-                <div className="relative w-1/2 overflow-hidden rounded-lg">
+              <div className="mt-8 flex flex-col lg:flex-row gap-5">
+                <div className="lg:w-1/2 overflow-hidden rounded-lg relative">
                   <div
                     className="flex transition-transform duration-500 ease-in-out"
                     style={{ transform: `translateX(-${current * 100}%)` }}
@@ -288,7 +323,7 @@ export default function App() {
                       <img
                         key={index}
                         src={src}
-                        className="w-full flex-shrink-0 object-cover"
+                        className="w-full md:aspect-[16/9] lg:aspect-auto flex-shrink-0 object-cover"
                         alt={`slide-${index}`}
                       />
                     ))}
@@ -296,14 +331,14 @@ export default function App() {
 
                   <button
                     onClick={prevSlide}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full cursor-pointer"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full cursor-pointer"
                   >
                     <BiChevronLeft size={24} />
                   </button>
 
                   <button
                     onClick={nextSlide}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full cursor-pointer"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full cursor-pointer"
                   >
                     <BiChevronRight size={24} />
                   </button>
@@ -323,9 +358,15 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="flex-1 space-y-3">
-                  <h3 className="text-xl font-semibold">Project Description</h3>
-                  <p className="text-gray-500">{selectedProject.description}</p>
+                <div className="flex-1 space-y-5">
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-semibold">
+                      Project Description
+                    </h3>
+                    <p className="text-gray-500">
+                      {selectedProject.description}
+                    </p>
+                  </div>
 
                   <div className="space-y-2">
                     <h3 className="text-xl font-semibold">Technologies</h3>
@@ -342,9 +383,9 @@ export default function App() {
         )}
       </section>
 
-      <section id="contact" className="p-30 space-y-20">
-        <div className="space-y-5 mt-5 flex justify-between">
-          <div className="max-w-1/2 flex-1 space-y-5">
+      <section id="contact" className="p-10 lg:p-20 xl:p-30 space-y-20">
+        <div className="space-y-10 mt-5 flex flex-col lg:flex-row justify-between">
+          <div className="lg:max-w-1/2 flex-1 space-y-5">
             <h1 className="text-4xl font-bold">Let’s Work Together</h1>
             <h3 className="text-2xl">
               I'm currently open to opportunities, collaborations, or freelance
@@ -392,8 +433,8 @@ export default function App() {
         </div>
       </section>
 
-      <footer className="px-30 py-20 bg-gray-700 text-(--primary-bg) flex items-center justify-between gap-5">
-        <div className="flex items-center gap-20">
+      <footer className="px-10 lg:px-20 xl:px-30 py-10 lg:py-20 bg-gray-700 text-(--primary-bg) flex items-center justify-between flex-col md:flex-row gap-10">
+        <div className="flex items-center gap-10 lg:gap-20 flex-col md:flex-row">
           <h1 className="text-2xl font-bold">Andrei. </h1>
 
           <p className="flex items-center gap-3">
