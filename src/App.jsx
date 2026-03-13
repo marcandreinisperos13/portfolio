@@ -276,8 +276,9 @@ export default function App() {
 
               <div
                 className={`
-                w-full h-full space-y-3 bg-black/50 text-center text-(--primary-bg) z-20 absolute inset-0 opacity-0 transition group-hover:opacity-100 overflow-hidden rounded-lg
-                ${openProject === index ? "opacity-100" : "opacity-0"}              `}
+                  w-full h-full space-y-3 bg-black/50 text-center text-(--primary-bg) z-20 absolute inset-0 opacity-0 invisible transition group-hover:opacity-100 group-hover:visible overflow-hidden rounded-lg
+                  ${openProject === index ? "opacity-100 visible" : "opacity-0 invisible"}              
+                `}
               >
                 <div className="space-y-3 h-full center-flex">
                   <div className="flex-1">
