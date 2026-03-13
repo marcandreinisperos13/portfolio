@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 import { SiGmail } from "react-icons/si";
 import {
   FaFacebookF,
   FaGithub,
+  FaLinkedin,
   FaPhoneAlt,
   FaRegCopyright,
 } from "react-icons/fa";
@@ -47,7 +47,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen text-(--primary-txt) bg-(--primary-bg) font-headline">
+    <div className="min-h-screen text-(--primary-txt) bg-(--primary-bg) font-body">
       <nav className="w-full bg-(--primary-bg)/80 fixed top-0 left-0 z-50">
         <div className="py-5 px-5 flex items-center lg:justify-around justify-between">
           <h3 className="font-semibold text-lg">Andrei.</h3>
@@ -141,11 +141,11 @@ export default function App() {
 
           <div className="flex-1 space-y-3">
             <FadeUp>
-              <h1 className="text-4xl font-bold">ABOUT ME</h1>
+              <h1 className="text-4xl font-bold font-headline">ABOUT ME</h1>
             </FadeUp>
 
             <FadeUp>
-              <h3 className="text-2xl font-semibold text-(--primary-btn)">
+              <h3 className="text-2xl font-semibold text-(--primary-btn) font-headline">
                 Junior Frontend Developer
               </h3>
             </FadeUp>
@@ -198,20 +198,20 @@ export default function App() {
 
         <div className="space-y-10">
           <FadeUp>
-            <h1 className="text-4xl font-bold text-center">
+            <h1 className="text-4xl font-bold text-center font-headline">
               EDUCATION & WORK EXPERIENCE
             </h1>
           </FadeUp>
 
           <div>
             {educWork.map((work, index) => (
-              <FadeUp>
+              <FadeUp key={index}>
                 <div className="min-h-[200px] flex" key={index}>
                   <div className="flex-1 space-y-2">
                     <h2 className="text-2xl font-bold text-(--primary-btn)">
                       {work.where}
                     </h2>
-                    <p>{work.date}</p>
+                    <p className="text-gray-500">{work.date}</p>
                   </div>
 
                   <div className="mx-5 flex justify-center">
@@ -230,7 +230,13 @@ export default function App() {
                       {work.title}
                     </h2>
 
-                    <p>{work.description}</p>
+                    {work.description.map((desc, index) => (
+                      <li
+                        key={index}
+                        className="ml-5 mb-5 text-gray-500"
+                        dangerouslySetInnerHTML={{ __html: desc }}
+                      />
+                    ))}
                   </div>
                 </div>
               </FadeUp>
@@ -240,7 +246,9 @@ export default function App() {
 
         <div className="space-y-10">
           <FadeUp>
-            <h1 className="text-4xl font-bold text-center">MY SKILLS</h1>
+            <h1 className="text-4xl font-bold text-center font-headline">
+              MY SKILLS
+            </h1>
           </FadeUp>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -248,8 +256,8 @@ export default function App() {
               <FadeUp>
                 <h3 className="text-2xl font-medium">Web Development</h3>
               </FadeUp>
-              {webSkills.map((skill) => (
-                <FadeUp>
+              {webSkills.map((skill, index) => (
+                <FadeUp key={index}>
                   <div className="w-full mb-4">
                     <div className="flex justify-between mb-1">
                       <span className="font-medium">{skill.name}</span>
@@ -270,8 +278,8 @@ export default function App() {
               <FadeUp>
                 <h3 className="text-2xl font-medium">Mobile Development</h3>
               </FadeUp>
-              {mobileSkills.map((skill) => (
-                <FadeUp>
+              {mobileSkills.map((skill, index) => (
+                <FadeUp key={index}>
                   <div className="w-full mb-4">
                     <div className="flex justify-between mb-1">
                       <span className="font-medium">{skill.name}</span>
@@ -297,60 +305,70 @@ export default function App() {
         className="p-10 lg:p-20 xl:p-30 space-y-10 lg:space-y-20 xl:space-y-30 bg-gray-100"
       >
         <FadeUp>
-          <h1 className="text-4xl font-bold text-center">PROJECTS</h1>
+          <h1 className="text-4xl font-bold text-center font-headline">
+            PROJECTS
+          </h1>
         </FadeUp>
         <FadeUp>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {projects.map((project, index) => (
-              <button
-                key={index}
-                onClick={() =>
-                  setOpenProject((prev) => (prev === index ? null : index))
-                }
-                className="aspect-square relative group"
-              >
-                <div className="p-3 rounded-lg bg-gray-200 absolute inset-0 z-10 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt="Project Image"
-                    className={`
-                      w-full h-full object-cover transition group-hover:scale-[1.2]
-                      ${openProject === index ? "scale-[1.2]" : "scale-100"}
-                    `}
-                  />
-                </div>
-
+          {projects.length === 0 ? (
+            <FadeUp>
+              <h1 className="text-xl text-center text-gray-500">
+                No Project Yet
+              </h1>
+            </FadeUp>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+              {projects.map((project, index) => (
                 <div
-                  className={`
-                    w-full h-full space-y-3 bg-black/50 text-center text-(--primary-bg) z-20 absolute inset-0 opacity-0 invisible transition group-hover:opacity-100 group-hover:visible overflow-hidden rounded-lg
-                    ${openProject === index ? "opacity-100 visible" : "opacity-0 invisible"}              
-                  `}
+                  key={index}
+                  onClick={() =>
+                    setOpenProject((prev) => (prev === index ? null : index))
+                  }
+                  className="aspect-square relative group"
                 >
-                  <div className="space-y-3 h-full center-flex">
-                    <div className="flex-1">
-                      <h2 className="text-(--primary-btn) text-2xl font-bold">
-                        {project.name}
-                      </h2>
-                      <p>{project.position}</p>
-                      <button
-                        className="button w-1/3 mt-5 bg-(--primary-btn) cursor-pointer"
-                        onClick={() => viewDetails(project)}
-                      >
-                        View Details
-                      </button>
+                  <div className="p-3 rounded-lg bg-gray-200 absolute inset-0 z-10 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt="Project Image"
+                      className={`
+                          w-full h-full object-cover transition group-hover:scale-[1.2]
+                          ${openProject === index ? "scale-[1.2]" : "scale-100"}
+                        `}
+                    />
+                  </div>
+
+                  <div
+                    className={`
+                        w-full h-full space-y-3 bg-black/50 text-center text-(--primary-bg) z-20 absolute inset-0 opacity-0 invisible transition group-hover:opacity-100 group-hover:visible overflow-hidden rounded-lg
+                        ${openProject === index ? "opacity-100 visible" : "opacity-0 invisible"}              
+                      `}
+                  >
+                    <div className="space-y-3 h-full center-flex">
+                      <div className="flex-1">
+                        <h2 className="text-(--primary-btn) text-2xl font-bold">
+                          {project.name}
+                        </h2>
+                        <p>{project.position}</p>
+                        <button
+                          className="button w-1/3 mt-5 bg-(--primary-btn) cursor-pointer"
+                          onClick={() => viewDetails(project)}
+                        >
+                          View Details
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="border-shadow rounded-lg"></div>
-              </button>
-            ))}
-          </div>
+                  <div className="border-shadow rounded-lg"></div>
+                </div>
+              ))}
+            </div>
+          )}
         </FadeUp>
         {openViewDetails && selectedProject && (
           <div className="p-5 fixed inset-0 center-flex bg-black/50 z-50">
             <div className="p-5 w-full lg:w-3/4 min-h-auto lg:min-h-1/2 bg-(--primary-bg) rounded-lg">
-              <h1 className="text-2xl font-bold relative">
+              <h1 className="text-2xl font-bold relative font-headline">
                 {selectedProject.name}
                 <IoClose
                   size={20}
@@ -432,7 +450,9 @@ export default function App() {
         <div className="space-y-10 mt-5 flex flex-col lg:flex-row justify-between">
           <div className="lg:max-w-1/2 flex-1 space-y-5">
             <FadeUp>
-              <h1 className="text-4xl font-bold">Let’s Work Together</h1>
+              <h1 className="text-4xl font-bold font-headline">
+                Let’s Work Together
+              </h1>
             </FadeUp>
             <FadeUp>
               <h3 className="text-2xl">
@@ -473,6 +493,19 @@ export default function App() {
             <FadeUp>
               <div className="flex items-center gap-5">
                 <div className="p-3 bg-(--primary-btn)/30 rounded-full">
+                  <FaLinkedin size={25} color="var(--primary-btn)" />
+                </div>
+                <a
+                  href="https://www.linkedin.com/in/marc-andrei-nisperos-2382133b7?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  className="underline"
+                >
+                  Marc Andrei Nisperos
+                </a>
+              </div>
+            </FadeUp>
+            <FadeUp>
+              <div className="flex items-center gap-5">
+                <div className="p-3 bg-(--primary-btn)/30 rounded-full">
                   <FaLocationDot size={25} color="var(--primary-btn)" />
                 </div>
                 <p>Imus City, Cavite, Philippines</p>
@@ -505,6 +538,13 @@ export default function App() {
           <div className="flex items-center gap-5">
             <a href="https://www.facebook.com/annndreeei">
               <FaFacebookF size={20} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/marc-andrei-nisperos-2382133b7?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin size={20} />
             </a>
             <a
               href="https://github.com/marcandreinisperos13"

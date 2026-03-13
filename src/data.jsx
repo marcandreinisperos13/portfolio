@@ -9,17 +9,19 @@ export const links = [
 // about section
 export const educWork = [
   {
-    where: "No Job",
-    date: "March 2026",
-    title: "No Job Position",
-    description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae asperiores necessitatibus omnis facilis sed fuga, hic mollitia, non velit unde et iure dolorem aspernatur corrupti temporibus magni minus quos optio.",
+    where: "Okto Tech",
+    date: "Sept 2025 - Present",
+    title: "Junior Front-End Developer ",
+    description: [
+      "<strong>Built Okto Tech Website</strong> from the scratch using <strong>Next.js, Tailwind CSS and Shadcn UI</strong>, creating a modern and fully responsive interface. Developed reusable UI components, implemented responsive layouts, and optimized performance and accessibility to ensure a seamless user experience across desktop, tablet, and mobile devices.",
+      "<strong>Built Okto Tech MVP Website and Mobile Application</strong> from the scratch using <strong>Next.js, Tailwind CSS and Shadcn UI</strong> for website and <strong>React Native</strong> for mobile application, creating modern and responsive UI. Developed reusable UI components, implemented responsive layouts for both platform.",
+    ],
   },
   {
     where: "Bachelor of Science in Information Technology",
     date: "September 2021 - July 2025",
     title: "College Graduate",
-    description: "Graduated at Cavite State University - Tanza Campus",
+    description: ["Graduated at Cavite State University - Tanza Campus"],
   },
 ];
 export const webSkills = [
@@ -36,38 +38,21 @@ export const mobileSkills = [
 
 // project section
 export const projects = [
-  {
-    name: "Project Name",
-    position: "Job Position",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.",
-    image: "Nahida.png",
-    images: [
-      "Citlali.png",
-      "Citlali.png",
-      "Citlali.png",
-      "Citlali.png",
-      "Citlali.png",
-    ],
-    client: "Client Name",
-    date: "March 2026",
-    tech: ["Tech 1", "Tech 2", "Tech 3"],
-  },
-  {
-    name: "Project Name",
-    position: "Job Position",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.",
-    image: "Nahida.png",
-    images: [
-      "Citlali.png",
-      "Citlali.png",
-      "Citlali.png",
-      "Citlali.png",
-      "Citlali.png",
-    ],
-    client: "Client Name",
-    date: "March 2026",
-    tech: ["Tech 1", "Tech 2", "Tech 3"],
-  },
+  // {
+  //   name: "Project Name",
+  //   position: "Job Position",
+  //   description:
+  //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.",
+  //   image: "none.png",
+  //   images: [
+  //     "placeholder.png",
+  //     "placeholder.png",
+  //     "placeholder.png",
+  //     "placeholder.png",
+  //     "placeholder.png",
+  //   ],
+  //   client: "Client Name",
+  //   date: "March 2026",
+  //   tech: ["Tech 1", "Tech 2", "Tech 3"],
+  // },
 ];
