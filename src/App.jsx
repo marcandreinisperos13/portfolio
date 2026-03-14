@@ -367,7 +367,7 @@ export default function App() {
         </FadeUp>
         {openViewDetails && selectedProject && (
           <div className="p-5 fixed inset-0 center-flex bg-black/50 z-50">
-            <div className="p-5 w-full lg:w-3/4 min-h-auto lg:min-h-3/4 bg-(--primary-bg) rounded-lg">
+            <div className="p-5 w-full lg:w-3/4 min-h-auto lg:min-h-3/4 max-h-[95vh] bg-(--primary-bg) rounded-lg overflow-y-auto">
               <h1 className="text-2xl font-bold relative font-headline">
                 {selectedProject.name}
                 <IoClose
