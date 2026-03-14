@@ -38,21 +38,33 @@ export const mobileSkills = [
 
 // project section
 export const projects = [
-  // {
-  //   name: "Project Name",
-  //   position: "Job Position",
-  //   description:
-  //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.",
-  //   image: "none.png",
-  //   images: [
-  //     "placeholder.png",
-  //     "placeholder.png",
-  //     "placeholder.png",
-  //     "placeholder.png",
-  //     "placeholder.png",
-  //   ],
-  //   client: "Client Name",
-  //   date: "March 2026",
-  //   tech: ["Tech 1", "Tech 2", "Tech 3"],
-  // },
+  {
+    name: "EBA Website",
+    position: "Full Stack Web Developer",
+    description: 
+      "The EBA Website is a capstone project when I was still a student at Cavite State University - Tanza Campus. This project is <strong>designed to provide a efficient and user-friendly online platform</strong> that <strong>allows the user to view campus news and events announcements, order items from the External and Business Affairs such as Student Uniforms, Department Shirt and more like shopping online</strong> through the website.",
+    image: "home1.png",
+    images: [
+      "home1.png",
+      "home2.png",
+      "home3.png",
+      "home4.png",
+      "store1.png",
+      "store2.png",
+      "store3.png",
+      "store4.png",
+      "store5.png",
+      "about1.png",
+      "about2.png",
+      "about3.png",
+      "admin1.png",
+      "admin2.png",
+      "admin3.png",
+      "admin4.png",
+      "admin5.png",
+    ],
+    client: "Capstone Project",
+    date: "June 2025",
+    tech: ["React.js", "Tailwind CSS", "Node.js", "Express.js", "PostgreSQL"],
+  },
 ];

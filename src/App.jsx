@@ -9,11 +9,11 @@ import {
   FaRegCopyright,
 } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-import { educWork, links, mobileSkills, projects, webSkills } from "./data";
 import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import { HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 
+import { educWork, links, mobileSkills, projects, webSkills } from "./data";
 import "./App.css";
 import FadeUp from "./FadeUp";
 
@@ -302,7 +302,7 @@ export default function App() {
 
       <section
         id="projects"
-        className="p-10 lg:p-20 xl:p-30 space-y-10 lg:space-y-20 xl:space-y-30 bg-gray-100"
+        className="min-h-[70vh] p-10 lg:p-20 xl:p-30 space-y-10 lg:space-y-20 bg-[#f5ebe0]"
       >
         <FadeUp>
           <h1 className="text-4xl font-bold text-center font-headline">
@@ -326,7 +326,7 @@ export default function App() {
                   }
                   className="aspect-square relative group"
                 >
-                  <div className="p-3 rounded-lg bg-gray-200 absolute inset-0 z-10 overflow-hidden">
+                  <div className="rounded-lg bg-gray-200 absolute inset-0 z-10 overflow-hidden">
                     <img
                       src={project.image}
                       alt="Project Image"
@@ -367,7 +367,7 @@ export default function App() {
         </FadeUp>
         {openViewDetails && selectedProject && (
           <div className="p-5 fixed inset-0 center-flex bg-black/50 z-50">
-            <div className="p-5 w-full lg:w-3/4 min-h-auto lg:min-h-1/2 bg-(--primary-bg) rounded-lg">
+            <div className="p-5 w-full lg:w-3/4 min-h-auto lg:min-h-3/4 bg-(--primary-bg) rounded-lg">
               <h1 className="text-2xl font-bold relative font-headline">
                 {selectedProject.name}
                 <IoClose
@@ -380,7 +380,7 @@ export default function App() {
               <div className="mt-8 flex flex-col lg:flex-row gap-5">
                 <div className="lg:w-1/2 overflow-hidden rounded-lg relative">
                   <div
-                    className="flex transition-transform duration-500 ease-in-out"
+                    className="flex transition"
                     style={{ transform: `translateX(-${current * 100}%)` }}
                   >
                     {selectedProject.images?.map((src, index) => (
@@ -427,12 +427,13 @@ export default function App() {
                     <h3 className="text-xl font-semibold">
                       Project Description
                     </h3>
-                    <p className="text-gray-500">
-                      {selectedProject.description}
-                    </p>
+                    <p
+                      className="project-desc text-gray-500 text-md"
+                      dangerouslySetInnerHTML={{ __html: selectedProject.description }}
+                    />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-xl font-semibold">Technologies Used</h3>
+                    <h3 className="text-xl font-semibold">Tech Stack</h3>
                     <div className="ml-5 text-gray-500">
                       {selectedProject.tech.map((tech, i) => (
                         <p key={i}>{tech}</p>
