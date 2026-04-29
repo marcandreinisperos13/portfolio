@@ -151,7 +151,7 @@ export default function App() {
             </FadeUp>
 
             <FadeUp>
-              <p className="my-10">
+              <p className="mt-10">
                 I'm a passionate and dedicated junior frontend developer with a
                 strong foundation in web and app development. I specialize in
                 creating responsive and user-friendly interfaces using{" "}
@@ -169,6 +169,18 @@ export default function App() {
                 </span>
                 .
               </p>
+            </FadeUp>
+
+            <FadeUp>
+              <div className="my-10">
+                <a
+                  href="/Nisperos-Resume.pdf"
+                  download="Nisperos-Resume.pdf"
+                  className="px-5 py-2 rounded-[5px] transition-all transition-300 text-center bg-(--primary-btn) text-(--primary-bg)"
+                >
+                  Download Resume
+                </a>
+              </div>
             </FadeUp>
 
             <FadeUp>
@@ -429,7 +441,9 @@ export default function App() {
                     </h3>
                     <p
                       className="project-desc text-gray-500 text-md"
-                      dangerouslySetInnerHTML={{ __html: selectedProject.description }}
+                      dangerouslySetInnerHTML={{
+                        __html: selectedProject.description,
+                      }}
                     />
                   </div>
                   <div className="space-y-2">

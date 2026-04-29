@@ -9,12 +9,12 @@ export const links = [
 // about section
 export const educWork = [
   {
-    where: "Okto Tech",
-    date: "Sept 2025 - Present",
-    title: "Junior Front-End Developer ",
+    where: "Vantrippers Travel and Tours",
+    date: "May 2025 - July 2025",
+    title: "Web Developer Intern",
     description: [
-      "<strong>Built Okto Tech Website</strong> from the scratch using <strong>Next.js, Tailwind CSS and Shadcn UI</strong>, creating a modern and fully responsive interface. Developed reusable UI components, implemented responsive layouts, and optimized performance and accessibility to ensure a seamless user experience across desktop, tablet, and mobile devices.",
-      "<strong>Built Okto Tech MVP Website and Mobile Application</strong> from the scratch using <strong>Next.js, Tailwind CSS and Shadcn UI</strong> for website and <strong>React Native</strong> for mobile application, creating modern and responsive UI. Developed reusable UI components, implemented responsive layouts for both platform.",
+      "<strong>Built Vantrippers Travel and Tours Website</strong> using <strong>HTML, CSS, JavaScript</strong>, creating a modern and fully responsive interface. Implemented responsive layouts, and optimized performance and accessibility to ensure a seamless user experience across desktop, tablet, and mobile devices.",
+      "<strong> Collaborated with the design team and also helped them to developed user interface for client and admin side of the website</strong>, ensuring a cohesive and visually appealing design that aligned with the company's branding and user experience goals.",
     ],
   },
   {
@@ -25,15 +25,15 @@ export const educWork = [
   },
 ];
 export const webSkills = [
-  { name: "HTML", level: 80 },
-  { name: "CSS", level: 85 },
+  { name: "HTML", level: 90 },
+  { name: "CSS", level: 95 },
   { name: "JavaScript", level: 60 },
-  { name: "React", level: 65 },
-  { name: "Tailwind CSS", level: 80 },
+  { name: "React", level: 60 },
+  { name: "Tailwind CSS", level: 85 },
 ];
 export const mobileSkills = [
   { name: "React Native", level: 45 },
-  { name: "Flutter", level: 30 },
+  { name: "Flutter", level: 20 },
 ];
 
 // project section
