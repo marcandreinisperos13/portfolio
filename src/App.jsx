@@ -174,7 +174,7 @@ export default function App() {
             <FadeUp>
               <div className="my-10">
                 <a
-                  href="/Nisperos-Resume.pdf"
+                  href="/portfolio/Nisperos-Resume.pdf"
                   download="Nisperos-Resume.pdf"
                   className="px-5 py-2 rounded-[5px] transition-all transition-300 text-center bg-(--primary-btn) text-(--primary-bg)"
                 >
