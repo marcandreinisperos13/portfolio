@@ -19,7 +19,7 @@ export const educWork = [
   },
   {
     where: "Bachelor of Science in Information Technology",
-    date: "September 2021 - July 2025",
+    date: "September 2021 - Sept 2026",
     title: "College Graduate",
     description: ["Graduated at Cavite State University - Tanza Campus"],
   },
